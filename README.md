@@ -4,4 +4,4 @@
 
 
 
-![Big Factors](image-1.png)
+![Big Factors](assets/image/app_icon.png)
