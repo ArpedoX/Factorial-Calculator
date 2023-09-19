@@ -13,6 +13,7 @@ class MainPageState extends State<MainPage> {
   List<String> factorialResult = [];
 
   bool showHeart = false;
+  bool calculating = false;
 
   void calculateFactorial(BuildContext context) {
     String input = numberController.text;
@@ -22,22 +23,29 @@ class MainPageState extends State<MainPage> {
         setState(() {
           factorialResult.clear();
           factorialResult.add("Calculating...");
+          calculating = true;
         });
 
         showDialog(
           context: context,
           barrierDismissible: false,
           builder: (BuildContext context) {
-            return const Dialog(
-              child: Padding(
-                padding: EdgeInsets.all(20.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    CircularProgressIndicator(),
-                    SizedBox(height: 10.0),
-                    Text("Calculating..."),
-                  ],
+            return WillPopScope(
+              onWillPop: () async {
+                return !calculating;
+              },
+              child: const Dialog(
+                child: Padding(
+                  padding: EdgeInsets.all(20.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      CircularProgressIndicator(),
+                      SizedBox(height: 10.0),
+                      Text("Calculating..."),
+                      SizedBox(height: 10.0),
+                    ],
+                  ),
                 ),
               ),
             );
@@ -46,26 +54,32 @@ class MainPageState extends State<MainPage> {
 
         Future.delayed(
           Duration(
-              seconds: n < 1000
-                  ? 1
-                  : (n >= 1000 && n <= 5000
-                          ? 2
-                          : (n > 5000 && n <= 10000 ? 3.8 : 6))
-                      .toInt()),
+            seconds: n < 1000
+                ? 1
+                : (n >= 1000 && n <= 5000
+                        ? 2
+                        : (n > 5000 && n <= 10000 ? 3.8 : 6))
+                    .toInt(),
+          ),
           () {
-            BigInt factorial = BigInt.one;
-            for (BigInt i = BigInt.one; i <= BigInt.from(n); i += BigInt.one) {
-              factorial *= i;
+            if (calculating) {
+              BigInt factorial = BigInt.one;
+              for (BigInt i = BigInt.one;
+                  i <= BigInt.from(n);
+                  i += BigInt.one) {
+                factorial *= i;
+              }
+              int zeroCount = countTrailingZeros(factorial);
+              int digitCount = countDigits(factorial);
+              setState(() {
+                factorialResult.clear();
+                factorialResult.add(
+                    "Trailing zeros: $zeroCount \nDigit count $digitCount");
+                factorialResult.add("$factorial");
+                calculating = false;
+              });
+              Navigator.of(context).pop();
             }
-            int zeroCount = countTrailingZeros(factorial);
-            int digitCount = countDigits(factorial);
-            setState(() {
-              factorialResult.clear();
-              factorialResult
-                  .add("Trailing zeros: $zeroCount \nDigit count $digitCount");
-              factorialResult.add("$factorial");
-            });
-            Navigator.of(context).pop();
           },
         );
       } else {
@@ -126,11 +140,18 @@ class MainPageState extends State<MainPage> {
     );
   }
 
+  void restart(BuildContext context) {
+    setState(() {
+      numberController.clear();
+      factorialResult.clear();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Factorial App'),
+        title: const Text('Big Factors'),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 16.0),
@@ -176,6 +197,13 @@ class MainPageState extends State<MainPage> {
                     calculateFactorial(context);
                   },
                   child: const Text('Calculate'),
+                ),
+                const SizedBox(height: 10.0),
+                ElevatedButton(
+                  onPressed: () {
+                    restart(context);
+                  },
+                  child: const Icon(Icons.rotate_left),
                 ),
               ],
             ),
