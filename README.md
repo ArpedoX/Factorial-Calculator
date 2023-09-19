@@ -27,4 +27,4 @@
   </li>
 </ul>
 
-### The computer version is not as stable as the mobile version!
+##### The computer version is not as stable as the mobile version!
