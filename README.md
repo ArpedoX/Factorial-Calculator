@@ -2,6 +2,4 @@
 
 "A factorial application that can even calculate the factorial of factorial..."
 
-
-
-![Big Factors](assets/image/app_icon.png)
+<img src="assets/image/app_icon.png" alt="Big Factors" width="200" height="200"/>
