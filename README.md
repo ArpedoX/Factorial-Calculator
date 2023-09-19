@@ -4,4 +4,4 @@
 
 
 
-![Big Factors](image.png)
+![Big Factors](image-1.png)
