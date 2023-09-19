@@ -26,3 +26,4 @@
     </ul>
   </li>
 </ul>
+### The computer version is not as stable as the mobile version!
