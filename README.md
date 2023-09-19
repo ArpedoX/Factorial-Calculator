@@ -20,9 +20,9 @@
 <ul>
   <li>6.To build release run
     <ul>
-      <li>For android: `flutter build apk`</li>
-      <li>For windows: `flutter build windows`</li>
-      <li>For linux: `flutter build linux`</li>
+      <li>For android: flutter build apk</li>
+      <li>For windows: flutter build windows</li>
+      <li>For linux: flutter build linux</li>
     </ul>
   </li>
 </ul>
