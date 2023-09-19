@@ -17,4 +17,10 @@
 3. Open the project in terminal
 4. Run `flutter pub get` in terminal
 5. Then `flutter packages pub run build_runner build --delete-conflicting-outputs` (Must be done on each git pull)
-6. To build release apk run `flutter build apk`
+<ul>
+  <li>6.
+    <ul>
+      <li>To build release apk run flutter build apk</li>
+    </ul>
+  </li>
+</ul>
