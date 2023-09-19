@@ -8,8 +8,8 @@
 </div>
 
 ## 📞 Contact
-- E Mail: Ufuktlh06@proton.me
-- Linkedin: https://www.linkedin.com/in/ufuk-talha-avc%C4%B1-5078b727b/
+- [E Mail](Ufuktlh06@proton.me)
+- [Linkedin](https://www.linkedin.com/in/ufuk-talha-avc%C4%B1-5078b727b/)
 
 ## 🛠️ Setup
 1. Setup flutter environment for your [platform](https://docs.flutter.dev/get-started/install)
