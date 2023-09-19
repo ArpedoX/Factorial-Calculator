@@ -13,7 +13,7 @@
 
 ## 🛠️ Setup
 1. Setup flutter environment for your [platform](https://docs.flutter.dev/get-started/install)
-2. Clone the repository locally
+2. Clone the repository locally `git clone https://github.com/UF7K00/Factorial-Calculator.git`
 3. Open the project in terminal
 4. Run `flutter pub get` in terminal
 5. Then `flutter packages pub run build_runner build --delete-conflicting-outputs` (Must be done on each git pull)
