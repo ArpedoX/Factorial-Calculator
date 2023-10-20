@@ -186,6 +186,9 @@ class MainPageState extends State<MainPage> {
                 TextField(
                   controller: numberController,
                   keyboardType: TextInputType.number,
+                  onSubmitted: (value) {
+                    calculateFactorial(context);
+                  },
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Number',
