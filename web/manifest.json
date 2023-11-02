@@ -1,6 +1,6 @@
 {
-    "name": "fact",
-    "short_name": "fact",
+    "name": "Factorial App",
+    "short_name": "Factorial App",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
