@@ -29,7 +29,7 @@ if (keystorePropertiesFile.exists()) {
 
 
 android {
-    namespace "com.android.fact"
+    namespace "com.arpedox.bigfactors"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
