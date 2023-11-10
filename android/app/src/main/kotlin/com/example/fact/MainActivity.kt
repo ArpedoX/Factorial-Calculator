@@ -1,4 +1,4 @@
-package com.android.fact
+package com.arpedox.bigfactors
 
 import io.flutter.embedding.android.FlutterActivity
 
